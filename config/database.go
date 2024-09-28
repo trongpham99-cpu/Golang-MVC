@@ -36,8 +36,9 @@ func getDBConfigByEnv(env string) string {
 		log.Fatalf("Unknown environment: %s", env)
 	}
 
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
-		user, password, host, port, name)
+	// dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=True&loc=Local",
+	// 	user, password, host, port, name)
+	dsn := fmt.Sprintf("user=%s password=%s dbname=%s host=%s port=%s sslmode=disable TimeZone=Asia/Shanghai", user, password, name, host, port)
 	println(dsn)
 	return dsn
 }
